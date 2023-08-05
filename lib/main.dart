@@ -1,19 +1,19 @@
 import 'package:flame/flame.dart';
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:minecraft/global/inventory.dart';
 import 'package:minecraft/global/player_data.dart';
 import 'package:minecraft/global/world_data.dart';
-import 'package:minecraft/layout/game_layout.dart';
 import 'package:minecraft/resources/blocks.dart';
 import 'package:minecraft/resources/items.dart';
 import 'package:minecraft/resources/sky_timer.dart';
 import 'package:minecraft/screens/menu_screen.dart';
 import 'package:minecraft/utils/constants.dart';
-import 'package:minecraft/utils/game_methods.dart';
 
+// TODO freezes on arrow key press
 void main() async {
+  print("Starting Minecraft");
+
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
@@ -28,6 +28,8 @@ void main() async {
   Hive.registerAdapter(PlayerDataSaveAdapter());
   Hive.registerAdapter(SkyTimerAdapter());
   Hive.registerAdapter(SkyTimerEnumAdapter());
+
+  print("Hive initialized");
 
   //load
   await Flame.images
@@ -45,6 +47,8 @@ void main() async {
   await Flame.images.load("sprite_sheets/mobs/sprite_sheet_zombie.png");
 
   await Flame.images.load("sprite_sheets/mobs/sprite_sheet_spider.png");
+
+  print("Images loaded");
 
   await Hive.openBox(worldDataBox);
 

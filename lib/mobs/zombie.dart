@@ -1,14 +1,6 @@
-import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
-import 'package:flame/sprite.dart';
-import 'package:flutter/services.dart';
-import 'package:minecraft/components/block_component.dart';
-import 'package:minecraft/components/player_component.dart';
 import 'package:minecraft/global/global_game_reference.dart';
 import 'package:minecraft/global/player_data.dart';
-import 'package:minecraft/resources/blocks.dart';
-import 'package:minecraft/resources/entity.dart';
 import 'package:minecraft/resources/hostile_entity.dart';
 import 'package:minecraft/utils/constants.dart';
 import 'package:minecraft/utils/game_methods.dart';

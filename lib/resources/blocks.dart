@@ -9,7 +9,6 @@ import 'package:minecraft/blocks/iron_ore_block.dart';
 import 'package:minecraft/blocks/sand_block.dart';
 import 'package:minecraft/blocks/stone_block.dart';
 import 'package:minecraft/components/block_component.dart';
-import 'package:minecraft/global/global_game_reference.dart';
 import 'package:minecraft/resources/items.dart';
 
 part 'blocks.g.dart';

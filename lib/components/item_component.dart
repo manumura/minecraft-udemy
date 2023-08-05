@@ -3,10 +3,8 @@ import 'package:flame/components.dart';
 import 'package:minecraft/components/block_component.dart';
 import 'package:minecraft/components/player_component.dart';
 import 'package:minecraft/global/global_game_reference.dart';
-import 'package:minecraft/global/inventory.dart';
 import 'package:minecraft/resources/blocks.dart';
 import 'package:minecraft/resources/entity.dart';
-import 'package:minecraft/resources/items.dart';
 import 'package:minecraft/utils/game_methods.dart';
 
 class ItemComponent extends Entity {

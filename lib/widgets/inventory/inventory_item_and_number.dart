@@ -1,8 +1,5 @@
 import 'package:flame/widgets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:minecraft/global/inventory.dart';
 import 'package:minecraft/resources/blocks.dart';

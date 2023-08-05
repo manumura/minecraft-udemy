@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minecraft/global/global_game_reference.dart';
 import 'package:minecraft/resources/blocks.dart';
@@ -26,7 +25,7 @@ class GameMethods {
 
   Vector2 get blockSize {
     return Vector2.all(getScreenSize().width / chunkWidth);
-    return Vector2.all(30);
+    // return Vector2.all(30);
   }
 
   double get slotSize {

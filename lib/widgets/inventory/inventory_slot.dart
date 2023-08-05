@@ -1,12 +1,8 @@
-import 'package:flame/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:minecraft/global/crafting_manager.dart';
 import 'package:minecraft/global/global_game_reference.dart';
 import 'package:minecraft/global/inventory.dart';
-import 'package:minecraft/resources/blocks.dart';
 import 'package:minecraft/resources/items.dart';
 import 'package:minecraft/utils/constants.dart';
 import 'package:minecraft/utils/game_methods.dart';

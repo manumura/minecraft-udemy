@@ -1,7 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/flame.dart';
-import 'package:flame/input.dart';
 import 'package:flame/sprite.dart';
 import 'package:minecraft/components/block_breaking_component.dart';
 import 'package:minecraft/components/item_component.dart';
@@ -10,7 +10,7 @@ import 'package:minecraft/resources/blocks.dart';
 import 'package:minecraft/resources/tools.dart';
 import 'package:minecraft/utils/game_methods.dart';
 
-class BlockComponent extends SpriteComponent with Tappable {
+class BlockComponent extends SpriteComponent with TapCallbacks {
   final Blocks block;
   Vector2 blockIndex;
   final int chunkIndex;
@@ -29,8 +29,9 @@ class BlockComponent extends SpriteComponent with Tappable {
         row: 0,
         stepTime: (BlockData.getBlockDataFor(block).baseMiningSpeed / 6) *
             getMiningSpeedChange(block),
-        loop: false)
-    ..animation!.onComplete = onBroken;
+        loop: false);
+    // TODO: Fix this
+    // ..animation!.onComplete = onBroken;
 
   void onBroken() {
     GameMethods.instance.replaceBlockAtWorldChunks(null, blockIndex);
@@ -51,7 +52,7 @@ class BlockComponent extends SpriteComponent with Tappable {
       srcSize: Vector2.all(60),
     );
 
-    sprite = await GameMethods.instance.getSpriteFromBlock(block);
+    sprite = GameMethods.instance.getSpriteFromBlock(block);
   }
 
   @override
@@ -78,13 +79,14 @@ class BlockComponent extends SpriteComponent with Tappable {
   }
 
   @override
-  bool onTapDown(TapDownInfo info) {
-    super.onTapDown(info);
+  bool onTapDown(TapDownEvent event) {
+    super.onTapDown(event);
 
     if (BlockData.getBlockDataFor(block).breakable) {
       //Adding component twice
       if (!blockBreakingComponent.isMounted) {
-        blockBreakingComponent.animation!.reset();
+        // TODO Fix this
+        // blockBreakingComponent.animation!.reset();
 
         add(blockBreakingComponent);
       }
@@ -95,8 +97,8 @@ class BlockComponent extends SpriteComponent with Tappable {
   }
 
   @override
-  bool onTapUp(TapUpInfo info) {
-    super.onTapUp(info);
+  bool onTapUp(TapUpEvent event) {
+    super.onTapUp(event);
 
     //stop block braking animation removeing
     if (blockBreakingComponent.isMounted) {
@@ -107,12 +109,10 @@ class BlockComponent extends SpriteComponent with Tappable {
   }
 
   @override
-  bool onTapCancel() {
-    //sotp block breaking animation
+  void onTapCancel(TapCancelEvent event) {
+    //stop block breaking animation
     if (blockBreakingComponent.isMounted) {
       remove(blockBreakingComponent);
     }
-
-    return true;
   }
 }

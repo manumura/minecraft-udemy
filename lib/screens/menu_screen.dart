@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:minecraft/layout/game_layout.dart';
 import 'package:minecraft/screens/world_select_screen.dart';
 import 'package:minecraft/widgets/launcher/minecraft_button.dart';
 import 'package:panorama/panorama.dart';
@@ -11,6 +8,7 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Build MenuScreen");
     return Scaffold(
       body: Stack(
         children: [
